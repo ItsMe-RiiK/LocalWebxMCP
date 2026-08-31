@@ -55,7 +55,7 @@ LocalWebxMCP/
 ## 🚀 Getting Started
 
 ### 1. Prerequisites
-*   [Go](https://go.dev/dl/) (version 1.21 or higher) installed on your machine.
+*   [Go](https://go.dev/dl/) (version 1.26 or higher) installed on your machine.
 *   Git installed.
 
 ### 2. Installation
