@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>LocalWeb x MCP</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!-- Modern icon library -->
+	<script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<div class="header-titles">
+				<h1><i class="ph ph-hard-drives"></i> LocalWeb x MCP</h1>
+				<p>Manage your local files and connect seamlessly with AI.</p>
+			</div>
+			<div class="status-badge">
+				<span class="dot pulse"></span>
+				MCP Active
+			</div>
+		</header>
+
+		<main>
+			<!-- Upload Section -->
+			<section class="upload-section">
+				<div id="drop-zone" class="drop-zone">
+					<i class="ph ph-cloud-arrow-up upload-icon"></i>
+					<h3>Drag & Drop files here</h3>
+					<p class="text-muted">or</p>
+					<input type="file" id="file-input" hidden>
+					<button id="browse-btn" class="btn primary-btn">Browse Files</button>
+				</div>
+				<!-- Progress and message container -->
+				<div id="upload-status" class="status-message hidden"></div>
+			</section>
+
+			<!-- File List Section -->
+			<section class="files-section">
+				<div class="section-header">
+					<h2><i class="ph ph-files"></i> Available Files</h2>
+					<button id="refresh-btn" class="btn icon-btn" title="Refresh List">
+						<i class="ph ph-arrows-clockwise"></i>
+					</button>
+				</div>
+
+				<!-- The JS will inject file cards here -->
+				<div id="file-list" class="file-grid">
+					<div class="empty-state">Loading files...</div>
+				</div>
+			</section>
+		</main>
+	</div>
+
+	<!-- Modular JavaScript Files -->
+	<script src="js/api.js"></script>
+	<script src="js/app.js"></script>
+</body>
+
+</html>

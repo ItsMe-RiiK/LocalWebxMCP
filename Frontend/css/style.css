@@ -1,0 +1,231 @@
+/* --- Color Palette & Variables --- */
+:root {
+	--bg-main: #0f172a;
+	--bg-card: #1e293b;
+	--bg-card-hover: #334155;
+	--text-main: #f8fafc;
+	--text-muted: #94a3b8;
+	--accent: #3b82f6;
+	--accent-hover: #2563eb;
+	--border-color: #334155;
+	--success: #10b981;
+	--error: #ef4444;
+}
+
+/* --- Base Reset --- */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+	background-color: var(--bg-main);
+	color: var(--text-main);
+	line-height: 1.6;
+	display: flex;
+	justify-content: center;
+	padding: 2rem 1rem;
+}
+
+.container {
+	width: 100%;
+	max-width: 800px;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+/* --- Header --- */
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: 1.5rem;
+	border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+	font-size: 1.75rem;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+header p {
+	color: var(--text-muted);
+	font-size: 0.9rem;
+	margin-top: 0.25rem;
+}
+
+/* Status Badge */
+.status-badge {
+	background-color: var(--bg-card);
+	padding: 0.5rem 1rem;
+	border-radius: 20px;
+	font-size: 0.85rem;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	border: 1px solid var(--border-color);
+}
+
+.dot {
+	width: 8px;
+	height: 8px;
+	background-color: var(--success);
+	border-radius: 50%;
+}
+
+.pulse {
+	animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+	0% {
+		box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+	}
+
+	70% {
+		box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+	}
+
+	100% {
+		box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+	}
+}
+
+/* --- Drag & Drop Zone --- */
+.drop-zone {
+	background-color: var(--bg-card);
+	border: 2px dashed var(--border-color);
+	border-radius: 12px;
+	padding: 3rem 2rem;
+	text-align: center;
+	transition: all 0.3s ease;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.drop-zone.dragover {
+	background-color: var(--bg-card-hover);
+	border-color: var(--accent);
+}
+
+.upload-icon {
+	font-size: 3rem;
+	color: var(--accent);
+}
+
+.text-muted {
+	color: var(--text-muted);
+	font-size: 0.9rem;
+}
+
+/* --- Buttons --- */
+.btn {
+	cursor: pointer;
+	border: none;
+	border-radius: 6px;
+	font-weight: 600;
+	transition: background-color 0.2s ease;
+}
+
+.primary-btn {
+	background-color: var(--accent);
+	color: white;
+	padding: 0.6rem 1.2rem;
+	margin-top: 0.5rem;
+}
+
+.primary-btn:hover {
+	background-color: var(--accent-hover);
+}
+
+.icon-btn {
+	background-color: var(--bg-card);
+	color: var(--text-main);
+	padding: 0.5rem;
+	font-size: 1.2rem;
+	border: 1px solid var(--border-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.icon-btn:hover {
+	background-color: var(--bg-card-hover);
+}
+
+/* --- Files Section --- */
+.section-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.section-header h2 {
+	font-size: 1.25rem;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.file-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 1rem;
+}
+
+/* File Card (Injected via JS) */
+.file-card {
+	background-color: var(--bg-card);
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.file-card:hover {
+	transform: translateY(-2px);
+	background-color: var(--bg-card-hover);
+}
+
+.file-card i {
+	font-size: 1.5rem;
+	color: var(--accent);
+}
+
+.file-name {
+	font-size: 0.9rem;
+	word-break: break-all;
+}
+
+.empty-state {
+	color: var(--text-muted);
+	grid-column: 1 / -1;
+	text-align: center;
+	padding: 2rem;
+	background-color: var(--bg-card);
+	border-radius: 8px;
+	border: 1px dashed var(--border-color);
+}
+
+/* Utilities */
+.hidden {
+	display: none;
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
