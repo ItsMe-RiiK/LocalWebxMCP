@@ -191,15 +191,23 @@ header p {
 	display: flex;
 	align-items: center;
 	gap: 0.75rem;
-	transition: transform 0.2s ease, background-color 0.2s ease;
+	transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+
+	/* New styles for anchor tags */
+	text-decoration: none;
+	color: var(--text-main);
+	cursor: pointer;
 }
 
 .file-card:hover {
 	transform: translateY(-2px);
 	background-color: var(--bg-card-hover);
+	border-color: var(--accent);
+	/* Highlights the border on hover */
 }
 
-.file-card i {
+/* Specific styling for the first icon (file type) */
+.file-card i:first-child {
 	font-size: 1.5rem;
 	color: var(--accent);
 }
@@ -207,6 +215,22 @@ header p {
 .file-name {
 	font-size: 0.9rem;
 	word-break: break-all;
+	flex-grow: 1;
+	/* Pushes the 'open-icon' to the far right */
+}
+
+/* The external link icon that appears on the right */
+.open-icon {
+	font-size: 1.2rem;
+	color: var(--text-muted);
+	opacity: 0;
+	transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+/* Show the external link icon only when hovering over the card */
+.file-card:hover .open-icon {
+	opacity: 1;
+	color: var(--accent);
 }
 
 .empty-state {
